@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var timer = $Timer
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D2
 
 
 func _on_body_entered(body):
