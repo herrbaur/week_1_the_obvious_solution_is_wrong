@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d0m4oiq6luyhx"]
+
+[ext_resource type="Script" uid="uid://77tcerumimao" path="res://scripts/speech_bubble.gd" id="1_x4eeu"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="2_e1pub"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi51f"]
+bg_color = Color(0.679831, 0.6824526, 0.6512382, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.10839342, 0.3223124, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdehh"]
+font = ExtResource("2_e1pub")
+font_size = 8
+font_color = Color(0, 0.10980392, 0.32156864, 1)
+
+[node name="SpeechBubble" type="Node2D" unique_id=2039843905]
+z_index = 10
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_x4eeu")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=29000394]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gi51f")
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=1724240418]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_fdehh")
+horizontal_alignment = 1
+autowrap_mode = 3

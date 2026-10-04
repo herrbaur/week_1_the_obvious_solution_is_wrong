@@ -7,12 +7,14 @@ const CLIMB_SPEED = 60.0
 var is_climbing := false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dead := false
+var _say_seq := 0
 
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
 @onready var hurtbox = $Hurtbox
 @onready var tile_map: TileMap = $"../TileMap"
+@onready var speech_bubble: Node2D = $SpeechBubble
 
 
 func _ready():
@@ -128,3 +130,13 @@ func climb_controller():
 	elif direction < 0:
 		animated_sprite.flip_h = true
 	animated_sprite.play("idle")  # vorerst, später eigene "climb"-Animation
+
+func say_lines(lines: Array, duration := 3.0):
+	_say_seq += 1
+	var my_seq = _say_seq
+	for line in lines:
+		if my_seq != _say_seq:  # eine neuere Zeile wurde gestartet
+			return
+		await speech_bubble.show_text(line, duration)
+	if my_seq == _say_seq:
+		speech_bubble.hide_bubble()

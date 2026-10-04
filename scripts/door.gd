@@ -13,14 +13,13 @@ var _say_id := 0
 
 @onready var game_manager = %GameManager
 @onready var prompt = $Prompt
-@onready var message = $Message
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var speech_bubble: Node2D = $SpeechBubble
 
 
 
 func _ready():
 	prompt.hide()
-	message.hide()
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
@@ -43,6 +42,7 @@ func _unhandled_input(event):
 
 
 func use_door():
+	print("use_door: kind=", kind, ", stage vorher=", GameStats.stage)
 	if player.is_dead:
 		return
 	if requires_no_coins and game_manager.score > 0:
@@ -62,10 +62,5 @@ func use_door():
 
 
 func say(text: String):
-	_say_id += 1
-	var my_id = _say_id
-	message.text = text
-	message.show()
-	await get_tree().create_timer(3.0).timeout
-	if my_id == _say_id:
-		message.hide()
+	await speech_bubble.show_text(text, 5.0)
+	speech_bubble.hide_bubble()

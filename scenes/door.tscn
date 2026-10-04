@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtvrku5ysemi0" path="res://assets/sprites/Dungeon Tile Set.png" id="2_la1wf"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="3_18pbm"]
 [ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="4_la1wf"]
+[ext_resource type="PackedScene" uid="uid://d0m4oiq6luyhx" path="res://scenes/speech_bubble.tscn" id="5_18pbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5w8r"]
 atlas = ExtResource("2_la1wf")
@@ -43,10 +44,6 @@ animations = [{
 size = Vector2(78, 51)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ayau"]
-font = ExtResource("3_18pbm")
-font_size = 8
-
-[sub_resource type="LabelSettings" id="LabelSettings_gi51f"]
 font = ExtResource("3_18pbm")
 font_size = 8
 
@@ -101,24 +98,20 @@ position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_fdehh")
 
 [node name="Prompt" type="Label" parent="." unique_id=785434165]
-offset_left = -49.0
-offset_top = -38.0
-offset_right = -10.0
-offset_bottom = -15.0
-label_settings = SubResource("LabelSettings_4ayau")
-
-[node name="Message" type="Label" parent="." unique_id=298212739]
-offset_left = -20.0
-offset_top = -36.0
+offset_left = -19.0
+offset_top = -29.0
 offset_right = 20.0
-offset_bottom = -13.0
-label_settings = SubResource("LabelSettings_gi51f")
-horizontal_alignment = 1
+offset_bottom = -19.0
+label_settings = SubResource("LabelSettings_4ayau")
+autowrap_mode = 3
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=680934140]
 modulate = Color(1, 0.03333336, 0, 1)
 position = Vector2(-14, 4)
 sprite_frames = SubResource("SpriteFrames_fdehh")
 autoplay = "default"
-frame_progress = 0.0166605
+frame_progress = 0.2745126
 flip_h = true
+
+[node name="SpeechBubble" parent="." unique_id=2039843905 instance=ExtResource("5_18pbm")]
+position = Vector2(-51, -47)

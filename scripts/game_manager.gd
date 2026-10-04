@@ -10,6 +10,9 @@ var score = 0
 func _ready():
 	var spawn_name = SPAWN_NAMES[GameStats.stage]
 	var spawn = get_node_or_null("../Spawns/" + spawn_name)
+	print("Stage=", GameStats.stage, ", Spawn=", spawn_name, ", gefunden=", spawn != null)
+	if spawn:
+		print("Spawn-Position: ", spawn.global_position)
 	if spawn:
 		player.global_position = spawn.global_position
 	else:

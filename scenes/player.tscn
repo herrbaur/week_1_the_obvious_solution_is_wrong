@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhojb01i6t155" path="res://scripts/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="1_p3dy5"]
+[ext_resource type="PackedScene" uid="uid://d0m4oiq6luyhx" path="res://scenes/speech_bubble.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://smy7qwuy2by6" path="res://scenes/hurtbox.tscn" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq0sc"]
@@ -176,6 +177,9 @@ radius = 5.0
 z_index = 5
 collision_layer = 4
 script = ExtResource("1_ofpvf")
+
+[node name="SpeechBubble" parent="." unique_id=2039843905 instance=ExtResource("2_dqkch")]
+position = Vector2(11, -39)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=165528613]
 position = Vector2(0, -12)

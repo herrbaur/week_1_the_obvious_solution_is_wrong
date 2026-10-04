@@ -11,6 +11,7 @@ var stage := 0                 # 0 = Tutorial, 1 = Level 1 (wird nicht gespeiche
 var _run_running := false
 var _run_start := 0
 var _run_frozen := -1.0          # >= 0, sobald der Run beendet ist
+var seen_dialogues := {}   # wird nicht gespeichert, gilt nur bis zum Spielende
 
 
 func _ready():
