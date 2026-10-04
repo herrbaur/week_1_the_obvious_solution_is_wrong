@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bvnquxlgl6tqq"]
+
+[ext_resource type="Script" uid="uid://dx2wfy32c5keq" path="res://scripts/chase_zone.gd" id="1_djg2u"]
+
+[node name="ChaseZone" type="Area2D" unique_id=664414574]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_djg2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1872215058]

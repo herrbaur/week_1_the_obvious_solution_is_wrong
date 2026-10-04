@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cu1dhr1iy4m57" path="res://scripts/spikes.gd" id="1_xbcdo"]
 [ext_resource type="Texture2D" uid="uid://dtvrku5ysemi0" path="res://assets/sprites/Dungeon Tile Set.png" id="2_bflj7"]
-[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="2_kd5gq"]
+[ext_resource type="PackedScene" uid="uid://btvetxn3a0nfn" path="res://scenes/killzone.tscn" id="2_kd5gq"]
+[ext_resource type="PackedScene" uid="uid://bvnquxlgl6tqq" path="res://scenes/chase_zone.tscn" id="4_kd5gq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bflj7"]
 atlas = ExtResource("2_bflj7")
@@ -89,5 +90,8 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=353294717]
 position = Vector2(0, 3.75)
 shape = SubResource("RectangleShape2D_nyr5e")
+
+[node name="ChaseZone" parent="." unique_id=664414574 instance=ExtResource("4_kd5gq")]
+horizontal_only = true
 
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
