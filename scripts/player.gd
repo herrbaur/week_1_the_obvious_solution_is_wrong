@@ -1,23 +1,46 @@
 extends CharacterBody2D
 
-
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var is_dead := false
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var collision_shape = $CollisionShape2D
+@onready var hurtbox = $Hurtbox
+
+
+func _ready():
+	hurtbox.hit.connect(die)
+
 
 func _physics_process(delta):
-	
-	#add gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		
-	movement_controller()
-	
+
+	if not is_dead:
+		movement_controller()
+
 	move_and_slide()
+
+
+func _on_hazard_touched(_other):
+	die()
+
+
+func die():
+	if is_dead:  # verhindert doppeltes Sterben
+		return
+	is_dead = true
+	print("You died!")
+	Engine.time_scale = 0.5
+	# set_deferred, weil wir mitten in einem Physik-Signal sind
+	collision_shape.set_deferred("disabled", true)
+	await get_tree().create_timer(0.6).timeout
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene()
+
 
 func movement_controller():
 	# Handle jump.

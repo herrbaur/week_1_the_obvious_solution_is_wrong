@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://smy7qwuy2by6"]
+
+[ext_resource type="Script" uid="uid://cfadb4gs6tki" path="res://scripts/hurtbox.gd" id="1_ksusc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ppkhk"]
+radius = 5.0
+
+[node name="Hurtbox" type="Area2D" unique_id=1989015266]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ksusc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1418049087]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ppkhk")
