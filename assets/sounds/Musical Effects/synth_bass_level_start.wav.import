@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://uav8lw7woo2e"
+path="res://.godot/imported/synth_bass_level_start.wav-df649c5791cf638f3e0c7a0d95f9b175.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Musical Effects/synth_bass_level_start.wav"
+dest_files=["res://.godot/imported/synth_bass_level_start.wav-df649c5791cf638f3e0c7a0d95f9b175.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

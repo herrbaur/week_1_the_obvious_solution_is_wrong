@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var game_manager = %GameManager
 @onready var animation_player = $AnimationPlayer
+@onready var point_light: PointLight2D = $PointLight2D
 
 var collected := false
 
@@ -12,3 +13,4 @@ func _on_body_entered(body):
 	collected = true
 	game_manager.add_point()
 	animation_player.play("pickup")
+	point_light.queue_free()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbn21qxcx3kia"
+path="res://.godot/imported/steel_drums_negative.wav-c23e58f2c9836fe857b39340e554d98f.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Musical Effects/steel_drums_negative.wav"
+dest_files=["res://.godot/imported/steel_drums_negative.wav-c23e58f2c9836fe857b39340e554d98f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

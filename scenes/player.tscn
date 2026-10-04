@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="1_p3dy5"]
 [ext_resource type="PackedScene" uid="uid://d0m4oiq6luyhx" path="res://scenes/speech_bubble.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://smy7qwuy2by6" path="res://scenes/hurtbox.tscn" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://dmn4eds5s046t" path="res://assets/sounds/Retro/jump_short.wav" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://duhe7my8ilfph" path="res://assets/sounds/tap.wav" id="6_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq0sc"]
 atlas = ExtResource("1_p3dy5")
@@ -179,16 +181,25 @@ collision_layer = 4
 script = ExtResource("1_ofpvf")
 
 [node name="SpeechBubble" parent="." unique_id=2039843905 instance=ExtResource("2_dqkch")]
-position = Vector2(11, -39)
+position = Vector2(13, -41)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=165528613]
-position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_81gkq")
 animation = &"jump"
 autoplay = "idle"
+offset = Vector2(0, -12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2065379493]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_bvcm0")
 
 [node name="Hurtbox" parent="." unique_id=1989015266 instance=ExtResource("3_qhqgy")]
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=841538897]
+stream = ExtResource("5_tuyoq")
+bus = &"SFX"
+
+[node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=798881850]
+stream = ExtResource("6_fjrip")
+volume_db = -8.0
+bus = &"SFX"

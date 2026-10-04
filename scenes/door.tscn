@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://i4bvflkw6jev" path="res://scripts/door.gd" id="1_83dcw"]
 [ext_resource type="Texture2D" uid="uid://dtvrku5ysemi0" path="res://assets/sprites/Dungeon Tile Set.png" id="2_la1wf"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="3_18pbm"]
-[ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="4_la1wf"]
+[ext_resource type="Texture2D" uid="uid://cb133r61tuvbx" path="res://assets/sprites/Guard_SpriteSheet.png" id="4_18pbm"]
 [ext_resource type="PackedScene" uid="uid://d0m4oiq6luyhx" path="res://scenes/speech_bubble.tscn" id="5_18pbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5w8r"]
@@ -47,28 +47,25 @@ size = Vector2(78, 51)
 font = ExtResource("3_18pbm")
 font_size = 8
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_18pbm"]
-atlas = ExtResource("4_la1wf")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgbum"]
-atlas = ExtResource("4_la1wf")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("4_18pbm")
+region = Rect2(0, 0, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pg2b6"]
-atlas = ExtResource("4_la1wf")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("4_18pbm")
+region = Rect2(24, 0, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ey00f"]
-atlas = ExtResource("4_la1wf")
-region = Rect2(96, 0, 32, 32)
+atlas = ExtResource("4_18pbm")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ayau"]
+atlas = ExtResource("4_18pbm")
+region = Rect2(72, 0, 24, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fdehh"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_18pbm")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kgbum")
 }, {
@@ -77,10 +74,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ey00f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ayau")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Door" type="Area2D" unique_id=902668992]
@@ -106,12 +106,11 @@ label_settings = SubResource("LabelSettings_4ayau")
 autowrap_mode = 3
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=680934140]
-modulate = Color(1, 0.03333336, 0, 1)
-position = Vector2(-14, 4)
+position = Vector2(-15, 1)
 sprite_frames = SubResource("SpriteFrames_fdehh")
 autoplay = "default"
-frame_progress = 0.2745126
+frame_progress = 0.37934142
 flip_h = true
 
 [node name="SpeechBubble" parent="." unique_id=2039843905 instance=ExtResource("5_18pbm")]
-position = Vector2(-51, -47)
+position = Vector2(-16, -29)

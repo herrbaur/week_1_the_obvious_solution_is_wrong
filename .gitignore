@@ -5,6 +5,7 @@
 
 # Godot-specific ignores
 .import/
+./assets/
 export.cfg
 export_credentials.cfg
 

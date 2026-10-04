@@ -62,5 +62,5 @@ func use_door():
 
 
 func say(text: String):
-	await speech_bubble.show_text(text, 5.0)
+	await speech_bubble.show_text(text, 3.0)
 	speech_bubble.hide_bubble()
