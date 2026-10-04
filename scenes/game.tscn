@@ -243,10 +243,6 @@ font_size = 8
 [sub_resource type="LabelSettings" id="LabelSettings_kvuet"]
 font = ExtResource("7_dinhu")
 
-[sub_resource type="LabelSettings" id="LabelSettings_gi51f"]
-font = ExtResource("4_kvpfn")
-font_size = 8
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gi51f"]
 distance = -16.0
 
@@ -255,7 +251,7 @@ distance = -16.0
 [node name="Visuals" type="Node" parent="." unique_id=580439822]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Visuals" unique_id=2108178783]
-color = Color(0.15564683, 0.38343018, 0.2857048, 1)
+color = Color(0.113665886, 0.2961771, 0.21761167, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Visuals" unique_id=943694506]
 environment = SubResource("Environment_gi51f")
@@ -283,7 +279,7 @@ layer_2/tile_data = PackedInt32Array(-327687, 589824, 1, -262151, 589824, 5, -19
 
 [node name="Player" parent="." unique_id=400620709 instance=ExtResource("1_rbmkf")]
 z_index = 2
-position = Vector2(293, -591)
+position = Vector2(294, -576)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=482134265]
 position = Vector2(0, -7)
@@ -422,17 +418,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Level 1" type="Node" parent="Interior/Labels" unique_id=1331794599]
 
-[node name="UpOrDownLabel" type="Label" parent="Interior/Labels/Level 1" unique_id=1400754063]
-offset_left = 682.0
-offset_top = -223.0
-offset_right = 797.0
-offset_bottom = -182.0
-text = "So viel Gold und niemand passt drauf auf..."
-label_settings = SubResource("LabelSettings_gi51f")
-horizontal_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
 [node name="Coins" type="Node" parent="Interior" unique_id=1602917634]
 
 [node name="Coin" parent="Interior/Coins" unique_id=1867117471 instance=ExtResource("5_u5sy4")]
@@ -498,7 +483,7 @@ position = Vector2(893, -604)
 position = Vector2(1014, -595)
 
 [node name="Torch4" parent="Interior/Torches/Tutorial" unique_id=185296805 instance=ExtResource("10_kvpfn")]
-position = Vector2(319, -620)
+position = Vector2(323, -621)
 
 [node name="Torch5" parent="Interior/Torches/Tutorial" unique_id=1066245227 instance=ExtResource("10_kvpfn")]
 position = Vector2(957, -694)
@@ -510,7 +495,7 @@ position = Vector2(1252, -603)
 position = Vector2(530, -627)
 
 [node name="Torch7" parent="Interior/Torches/Tutorial" unique_id=1518782951 instance=ExtResource("10_kvpfn")]
-position = Vector2(230, -611)
+position = Vector2(226, -610)
 
 [node name="Torch8" parent="Interior/Torches/Tutorial" unique_id=494343905 instance=ExtResource("10_kvpfn")]
 position = Vector2(633, -627)
@@ -521,7 +506,7 @@ position = Vector2(726, -625)
 [node name="Level 1" type="Node" parent="Interior/Torches" unique_id=184020985]
 
 [node name="Torch13" parent="Interior/Torches/Level 1" unique_id=302616943 instance=ExtResource("10_kvpfn")]
-position = Vector2(739, -188)
+position = Vector2(742, -188)
 
 [node name="Torch" parent="Interior/Torches/Level 1" unique_id=1012277363 instance=ExtResource("10_kvpfn")]
 z_index = 2
@@ -543,7 +528,7 @@ position = Vector2(590, -18)
 position = Vector2(598, -171)
 
 [node name="Torch7" parent="Interior/Torches/Level 1" unique_id=1570952786 instance=ExtResource("10_kvpfn")]
-position = Vector2(835, -213)
+position = Vector2(836, -216)
 
 [node name="Torch8" parent="Interior/Torches/Level 1" unique_id=77337950 instance=ExtResource("10_kvpfn")]
 position = Vector2(1007, -214)
@@ -555,7 +540,7 @@ position = Vector2(1176, -182)
 position = Vector2(1079, -190)
 
 [node name="Torch11" parent="Interior/Torches/Level 1" unique_id=651836769 instance=ExtResource("10_kvpfn")]
-position = Vector2(840, -128)
+position = Vector2(841, -128)
 
 [node name="Torch12" parent="Interior/Torches/Level 1" unique_id=1377380793 instance=ExtResource("10_kvpfn")]
 position = Vector2(969, -128)
@@ -573,10 +558,10 @@ shape = SubResource("WorldBoundaryShape2D_gi51f")
 position = Vector2(-196, -88)
 
 [node name="Tutorial" type="Marker2D" parent="Spawns" unique_id=1664450324]
-position = Vector2(489, -504)
+position = Vector2(489, -492)
 
 [node name="Level1" type="Marker2D" parent="Spawns" unique_id=1948081553]
-position = Vector2(205, 130)
+position = Vector2(204, 145)
 
 [node name="Coin" parent="." unique_id=1693913807 instance=ExtResource("5_u5sy4")]
 position = Vector2(673, -619)
@@ -585,7 +570,7 @@ position = Vector2(673, -619)
 position = Vector2(-168, -87)
 
 [node name="DialogueTrigger" parent="Triggers" unique_id=1591958335 instance=ExtResource("12_dinhu")]
-position = Vector2(493, -499)
+position = Vector2(491, -493)
 dialogue_id = "intro"
 
 [node name="DialogueTrigger2" parent="Triggers" unique_id=395182201 instance=ExtResource("12_dinhu")]
@@ -599,3 +584,7 @@ dialogue_id = "door"
 [node name="DialogueTrigger3" parent="Triggers" unique_id=16764004 instance=ExtResource("12_dinhu")]
 position = Vector2(225, 141)
 dialogue_id = "level1_start"
+
+[node name="DialogueTrigger5" parent="Triggers" unique_id=2130727889 instance=ExtResource("12_dinhu")]
+position = Vector2(892, -83)
+dialogue_id = "gold"

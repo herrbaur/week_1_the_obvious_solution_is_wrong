@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="1_p3dy5"]
 [ext_resource type="PackedScene" uid="uid://d0m4oiq6luyhx" path="res://scenes/speech_bubble.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://smy7qwuy2by6" path="res://scenes/hurtbox.tscn" id="3_qhqgy"]
-[ext_resource type="AudioStream" uid="uid://dmn4eds5s046t" path="res://assets/sounds/Retro/jump_short.wav" id="5_tuyoq"]
-[ext_resource type="AudioStream" uid="uid://duhe7my8ilfph" path="res://assets/sounds/tap.wav" id="6_fjrip"]
+[ext_resource type="AudioStream" uid="uid://b57lle6xgiwwj" path="res://assets/sounds/jump.mp3" id="5_fjrip"]
+[ext_resource type="AudioStream" uid="uid://l5lh4ili6clt" path="res://assets/sounds/land.mp3" id="6_smehm"]
+[ext_resource type="AudioStream" uid="uid://bn8uvqw6ug1mo" path="res://assets/sounds/universfield-character-fall-impact-352287.mp3" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq0sc"]
 atlas = ExtResource("1_p3dy5")
@@ -196,10 +197,14 @@ shape = SubResource("CircleShape2D_bvcm0")
 [node name="Hurtbox" parent="." unique_id=1989015266 instance=ExtResource("3_qhqgy")]
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=841538897]
-stream = ExtResource("5_tuyoq")
+stream = ExtResource("5_fjrip")
 bus = &"SFX"
 
 [node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=798881850]
-stream = ExtResource("6_fjrip")
+stream = ExtResource("6_smehm")
 volume_db = -8.0
+bus = &"SFX"
+
+[node name="DieSound" type="AudioStreamPlayer" parent="." unique_id=2014423425]
+stream = ExtResource("7_fjrip")
 bus = &"SFX"

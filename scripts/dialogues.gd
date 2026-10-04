@@ -19,4 +19,7 @@ const LINES = {
 	"level1_start": [
 		"Die Schatzkammer! Hier liegt das Gold des Grafen.",
 	],
+	"gold": [
+		"So viel Gold und niemand passt drauf auf..."
+	]
 }

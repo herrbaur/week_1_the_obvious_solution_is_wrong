@@ -20,6 +20,7 @@ const DustPuff = preload("res://scripts/dust_puff.gd")
 @onready var speech_bubble: Node2D = $SpeechBubble
 @onready var jump_sound = $JumpSound
 @onready var land_sound = $LandSound  
+@onready var die_sound: AudioStreamPlayer = $DieSound
 
 func _ready():
 	hurtbox.hit.connect(die)
@@ -56,6 +57,7 @@ func die():
 		return
 	is_dead = true
 	is_climbing = false
+	die_sound.play()
 	GameStats.add_death()
 	print("You died!")
 	Engine.time_scale = 0.5
