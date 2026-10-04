@@ -2,13 +2,17 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+const CLIMB_SPEED = 60.0
 
+var is_climbing := false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dead := false
+
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
 @onready var hurtbox = $Hurtbox
+@onready var tile_map: TileMap = $"../TileMap"
 
 
 func _ready():
@@ -16,10 +20,17 @@ func _ready():
 
 
 func _physics_process(delta):
-	if not is_on_floor():
+	if not is_dead:
+		update_climbing()
+
+	if not is_climbing and not is_on_floor():
 		velocity.y += gravity * delta
 
-	if not is_dead:
+	if is_dead:
+		pass
+	elif is_climbing:
+		climb_controller()
+	else:
 		movement_controller()
 
 	move_and_slide()
@@ -33,6 +44,8 @@ func die():
 	if is_dead:  # verhindert doppeltes Sterben
 		return
 	is_dead = true
+	is_climbing = false
+	GameStats.add_death()
 	print("You died!")
 	Engine.time_scale = 0.5
 	# set_deferred, weil wir mitten in einem Physik-Signal sind
@@ -70,3 +83,48 @@ func movement_controller():
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+func is_ladder_at(world_pos: Vector2) -> bool:
+	if tile_map == null:
+		return false
+	var cell = tile_map.local_to_map(tile_map.to_local(world_pos))
+	for layer in tile_map.get_layers_count():
+		var data = tile_map.get_cell_tile_data(layer, cell)
+		if data and data.get_custom_data("ladder"):
+			return true
+	return false
+
+
+func update_climbing():
+	var on_ladder = is_ladder_at(global_position + Vector2(0, -5))  # Körpermitte
+	var climb_input = Input.get_axis("move_up", "move_down")
+
+	if is_climbing:
+		if not on_ladder:
+			is_climbing = false
+		elif Input.is_action_just_pressed("jump"):
+			is_climbing = false
+			velocity.y = JUMP_VELOCITY
+		elif is_on_floor() and climb_input > 0:  # unten angekommen
+			is_climbing = false
+	elif on_ladder and climb_input != 0 and not (is_on_floor() and climb_input > 0):
+		is_climbing = true
+		velocity.y = 0
+
+
+func climb_controller():
+	var climb_input = Input.get_axis("move_up", "move_down")
+	var direction = Input.get_axis("move_left", "move_right")
+
+	# oben an der Leiter stoppen
+	if climb_input < 0 and not is_ladder_at(global_position + Vector2(0, -12)):
+		climb_input = 0
+
+	velocity.y = climb_input * CLIMB_SPEED
+	velocity.x = direction * CLIMB_SPEED
+
+	if direction > 0:
+		animated_sprite.flip_h = false
+	elif direction < 0:
+		animated_sprite.flip_h = true
+	animated_sprite.play("idle")  # vorerst, später eigene "climb"-Animation

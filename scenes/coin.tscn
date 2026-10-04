@@ -198,8 +198,17 @@ _data = {
 &"pickup": SubResource("Animation_0t7oa")
 }
 
+[sub_resource type="Gradient" id="Gradient_d14el"]
+offsets = PackedFloat32Array(0.10843374, 0.79518074)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gi51f"]
+gradient = SubResource("Gradient_d14el")
+fill = 1
+fill_from = Vector2(0.5217391, 0.4869565)
+
 [node name="Coin" type="Area2D" unique_id=1867117471]
-collision_mask = 2
+collision_mask = 4
 script = ExtResource("1_ix6bn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1744135741]
@@ -217,5 +226,12 @@ bus = &"SFX"
 libraries/ = SubResource("AnimationLibrary_gmtgn")
 
 [node name="ChaseZone" parent="." unique_id=664414574 instance=ExtResource("4_d14el")]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=78739231]
+position = Vector2(-2.3841858e-07, 0)
+scale = Vector2(0.24999999, 0.24999999)
+color = Color(0.94929224, 0.8789408, 0.2911994, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_gi51f")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

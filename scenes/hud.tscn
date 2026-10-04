@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://p8lscf1t23sd"]
+
+[ext_resource type="Script" uid="uid://ctwx30samjxgb" path="res://scripts/hud.gd" id="1_oo0fn"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="2_5ysmq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gi51f"]
+font = ExtResource("2_5ysmq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdehh"]
+font = ExtResource("2_5ysmq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdq0x"]
+font = ExtResource("2_5ysmq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_b3i2l"]
+font = ExtResource("2_5ysmq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_e37iu"]
+font = ExtResource("2_5ysmq")
+
+[node name="HUD" type="CanvasLayer" unique_id=2086981299]
+script = ExtResource("1_oo0fn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=294471636]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 131.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=943196407]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1236507687]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_gi51f")
+horizontal_alignment = 2
+
+[node name="DeathsLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1580927114]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_fdehh")
+horizontal_alignment = 2
+
+[node name="RunLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1641191486]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_bdq0x")
+horizontal_alignment = 2
+
+[node name="BestLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1308817096]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_b3i2l")
+horizontal_alignment = 2
+
+[node name="TotalLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=148101723]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_e37iu")
+horizontal_alignment = 2
