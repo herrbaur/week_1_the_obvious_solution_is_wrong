@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://du5n2aqkl3adw"]
+
+[ext_resource type="Script" uid="uid://i4bvflkw6jev" path="res://scripts/door.gd" id="1_83dcw"]
+[ext_resource type="Texture2D" uid="uid://dtvrku5ysemi0" path="res://assets/sprites/Dungeon Tile Set.png" id="2_la1wf"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="3_18pbm"]
+[ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="4_la1wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5w8r"]
+atlas = ExtResource("2_la1wf")
+region = Rect2(208, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t58dd"]
+atlas = ExtResource("2_la1wf")
+region = Rect2(208, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju5n0"]
+atlas = ExtResource("2_la1wf")
+region = Rect2(192, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gi51f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5w8r")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t58dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju5n0")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdehh"]
+size = Vector2(78, 51)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ayau"]
+font = ExtResource("3_18pbm")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_gi51f"]
+font = ExtResource("3_18pbm")
+font_size = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18pbm"]
+atlas = ExtResource("4_la1wf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgbum"]
+atlas = ExtResource("4_la1wf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg2b6"]
+atlas = ExtResource("4_la1wf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey00f"]
+atlas = ExtResource("4_la1wf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdehh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18pbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgbum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg2b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey00f")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Door" type="Area2D" unique_id=902668992]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_83dcw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1307521532]
+sprite_frames = SubResource("SpriteFrames_gi51f")
+animation = &"open"
+autoplay = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1526103808]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_fdehh")
+
+[node name="Prompt" type="Label" parent="." unique_id=785434165]
+offset_left = -49.0
+offset_top = -38.0
+offset_right = -10.0
+offset_bottom = -15.0
+label_settings = SubResource("LabelSettings_4ayau")
+
+[node name="Message" type="Label" parent="." unique_id=298212739]
+offset_left = -20.0
+offset_top = -36.0
+offset_right = 20.0
+offset_bottom = -13.0
+label_settings = SubResource("LabelSettings_gi51f")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=680934140]
+modulate = Color(1, 0.03333336, 0, 1)
+position = Vector2(-14, 4)
+sprite_frames = SubResource("SpriteFrames_fdehh")
+autoplay = "default"
+frame_progress = 0.0166605
+flip_h = true

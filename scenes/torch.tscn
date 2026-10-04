@@ -45,10 +45,9 @@ fill_from = Vector2(0.4826087, 0.46521738)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=500104796]
 sprite_frames = SubResource("SpriteFrames_gi51f")
 autoplay = "default"
-frame_progress = 0.16871433
+frame_progress = 0.8409962
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1633750874]
-visible = false
 position = Vector2(2.861023e-06, 1.9073486e-06)
 scale = Vector2(1.9062499, 1.7812501)
 color = Color(1, 0.5686275, 0.12156863, 1)

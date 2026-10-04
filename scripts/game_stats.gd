@@ -7,6 +7,8 @@ var deaths := 0
 var best_time := -1.0            # -1 = noch keine Bestzeit
 var _saved_total_time := 0.0     # Gesamtzeit aus früheren Sitzungen
 var _session_start := 0          # Millisekunden
+var stage := 0                 # 0 = Tutorial, 1 = Level 1 (wird nicht gespeichert)
+var _run_running := false
 var _run_start := 0
 var _run_frozen := -1.0          # >= 0, sobald der Run beendet ist
 
@@ -14,16 +16,18 @@ var _run_frozen := -1.0          # >= 0, sobald der Run beendet ist
 func _ready():
 	_session_start = Time.get_ticks_msec()
 	load_stats()
-	start_run()
-
 
 func start_run():
 	_run_start = Time.get_ticks_msec()
 	_run_frozen = -1.0
+	_run_running = true
 
+func stop_run():
+	_run_running = false
+	_run_frozen = -1.0
 
-func finish_run():  # später von der Tür aufrufen
-	if _run_frozen >= 0.0:
+func finish_run():
+	if not _run_running or _run_frozen >= 0.0:
 		return
 	_run_frozen = run_time()
 	if best_time < 0.0 or _run_frozen < best_time:
@@ -32,11 +36,15 @@ func finish_run():  # später von der Tür aufrufen
 
 
 func add_death():
+	if stage < 1:  # Tode im Tutorial zählen nicht
+		return
 	deaths += 1
 	save_stats()
 
 
 func run_time() -> float:
+	if not _run_running:
+		return 0.0
 	if _run_frozen >= 0.0:
 		return _run_frozen
 	return (Time.get_ticks_msec() - _run_start) / 1000.0
